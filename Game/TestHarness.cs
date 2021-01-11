@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    class Program
+    class TestHarness
     {
         static void Main(string[] args)
         {
