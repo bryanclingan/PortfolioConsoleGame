@@ -54,6 +54,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CharacterLibrary\CharacterLibrary.csproj">
+      <Project>{9bee24d4-4075-4f4e-b5d1-cc513526cc1f}</Project>
+      <Name>CharacterLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ItemLibrrary\ItemLibrrary.csproj">
       <Project>{38673f01-e4d6-4b7f-b3a9-7fed70a7cf22}</Project>
       <Name>ItemLibrrary</Name>

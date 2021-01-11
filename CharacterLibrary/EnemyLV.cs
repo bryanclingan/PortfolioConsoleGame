@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CharacterLibrary
 {
-    public class Class1
+    public enum EnemyLV
     {
-    }
-}
+        Easy,Medium,Hard
+    }//end enum
+}//end namespace
