@@ -22,10 +22,12 @@ namespace Game
             //Console.WriteLine(weapon1);
             //Console.WriteLine(magicItem1);
 
-            
+            Random rand = new Random();
+            int random = rand.Next(10, 21);
             Player player1 = new Player("Clangster", 100, 100, 12, 10, 10, Race.Human, Class.Wizard, armor1, weapon1, magicItem1, 0, 1, 5, 0, 100, 1);
-            Console.WriteLine(player1);
-           // Enemey enemey1 = new Enemey("Goblin", 50, 50, 6, 10, 10, EnemyLV.Easy, 25, 50, 50, 50,(new Random().Next(10, 21)),( new Random().Next(50,56)));
+           // Console.WriteLine(player1);
+            Enemey enemey1 = new Enemey("Goblin", 50, 50, 6, 10, 10, EnemyLV.Easy, 25, 50, 50, 50,0,0);
+            Console.WriteLine(enemey1.GoldDroped);
             
         }//end main()
     }//end class
