@@ -33,10 +33,7 @@ namespace Game
             Enemey enemey2 = new Enemey("Orc", EnemyLV.Medium);
             Enemey enemey3 = new Enemey("Troll", EnemyLV.Hard);
 
-            if (player1.HPPots >0)
-            {
-
-            }
+            
             
         }//end main()
         
