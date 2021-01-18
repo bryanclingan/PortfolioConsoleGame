@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ItemLibrrary;
 using CharacterLibrary;
+using Methods;
 
 namespace Game
 {
@@ -25,10 +26,20 @@ namespace Game
             Random rand = new Random();
             int random = rand.Next(10, 21);
             Player player1 = new Player("Clangster", 100, 100, 12, 10, 10, Race.Human, Class.Wizard, armor1, weapon1, magicItem1, 0, 1, 5, 0, 100, 1);
-           // Console.WriteLine(player1);
-            Enemey enemey1 = new Enemey("Goblin", 50, 50, 6, 10, 10, EnemyLV.Easy, 25, 50, 50, 50,0,0);
-            Console.WriteLine(enemey1.GoldDroped);
+            
+            //Console.WriteLine(player1);
+            Enemey enemey1 = new Enemey("Goblin",EnemyLV.Easy);
+            
+            Enemey enemey2 = new Enemey("Orc", EnemyLV.Medium);
+            Enemey enemey3 = new Enemey("Troll", EnemyLV.Hard);
+
+            if (player1.HPPots >0)
+            {
+
+            }
             
         }//end main()
+        
+
     }//end class
 }//end namespace

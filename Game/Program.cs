@@ -10,6 +10,11 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            Console.Title="Game";
+
+            Console.WriteLine("Welcome to the Game.\n What is your name?");
+
+
 
         }//end main()
     }//end class

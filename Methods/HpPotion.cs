@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ItemLibrrary;
+using CharacterLibrary;
 
-namespace CharacterLibrary
+namespace Methods
 {
-    public enum EnemyLV
+    public class HpPotion
     {
-        Easy,Medium,Hard,Boss
-    }//end enum
+        
+    }//end class
 }//end namespace

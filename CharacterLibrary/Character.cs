@@ -35,10 +35,20 @@ namespace CharacterLibrary
             Attack = attack;
             Defense = defense;
         }//end FQCTOR
+        public Character(string name, int health, int maxHealth)
+        {
+            Name = name;
+            MaxHealth = maxHealth;
+            Health = health;
+        }
         public Character()
         {
 
         }//end paramterless ctor
+        public Character(string name)
+        {
+            Name = name;
+        }
         public override string ToString()
         {
             return string.Format($"{Name}\nHP: {Health}/{MaxHealth}");
