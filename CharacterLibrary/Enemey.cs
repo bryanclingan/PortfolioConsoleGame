@@ -37,7 +37,7 @@ namespace CharacterLibrary
         public Enemey(string name,  EnemyLV level ) : base(name)
         {
             Level = level;
-            
+            Count = 0;
            
             
             switch (Level)

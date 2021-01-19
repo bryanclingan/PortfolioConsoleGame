@@ -21,8 +21,9 @@ namespace CharacterLibrary
         public int ExpEarned { get; set; }
         public int ExpNeededLvUp { get; set; }
         public int Level { get; set; }
+        
 
-         public int HPPots
+        public int HPPots
         {
             get { return _hppots; }
             set { _hppots = value >= MaxHPPots ? MaxHPPots : value; }
@@ -45,6 +46,8 @@ namespace CharacterLibrary
             Defense = defense + Armor.DefBoost + MagicItem.DefBoost;
             MaxHealth = maxHealth + MagicItem.HealthBoost;
             Health = health + MagicItem.HealthBoost;
+            Limit = limit;
+            Count = 0;
             switch (PlayerRace)
             {
                 case Race.Elf:
@@ -74,7 +77,7 @@ namespace CharacterLibrary
                 
             }//end switch
         }//end fqctor
-
+        
        
 
         public override string ToString()

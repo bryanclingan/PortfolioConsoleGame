@@ -14,6 +14,7 @@ namespace CharacterLibrary
         public int Defense { get; set; }
         public int MaxHealth { get; set; }
         public int Limit { get; set; }
+        public int Count { get; set; }
 
         public string Name
         {
@@ -34,6 +35,7 @@ namespace CharacterLibrary
             Limit = limit;
             Attack = attack;
             Defense = defense;
+            Count = 0;
         }//end FQCTOR
         public Character(string name, int health, int maxHealth)
         {
