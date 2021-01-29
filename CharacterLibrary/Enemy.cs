@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterLibrary
 {
-    public class Enemey:Character
+    public class Enemy:Character
     {
        
 
@@ -20,7 +20,7 @@ namespace CharacterLibrary
 
         
 
-        public Enemey(string name, int health, int maxHealth, int limit,int attack, int defense,EnemyLV level, int lootDropRate, int armorWeaponDropRate, int magicItemDropRate, int hPPotDropRate, int goldDroped, int expDroped) : base(name, health, maxHealth, limit, attack, defense)
+        public Enemy(string name, int health, int maxHealth, int limit,int attack, int defense,EnemyLV level, int lootDropRate, int armorWeaponDropRate, int magicItemDropRate, int hPPotDropRate, int goldDroped, int expDroped) : base(name, health, maxHealth, limit, attack, defense)
         {
             Level = level;
             LootDropRate = lootDropRate;
@@ -34,7 +34,7 @@ namespace CharacterLibrary
        
         }//end FQCTOR
 
-        public Enemey(string name,  EnemyLV level ) : base(name)
+        public Enemy(string name,  EnemyLV level ) : base(name)
         {
             Level = level;
             Count = 0;

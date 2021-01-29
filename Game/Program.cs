@@ -86,7 +86,55 @@ namespace Game
             MagicItem magicItem1 = new MagicItem("Shiny ring", "Who knows what secrets it holds", 5, 5, 10);
             Player player = new Player(playerName, 100, 100, 12, 10, 10, playerRace, playerClass, armor1, weapon1, magicItem1, 50, 1, 5, 0, 100, 1);
             Console.WriteLine(player);
+            Console.WriteLine("Lets start an adventure!!");
+            System.Threading.Thread.Sleep(2000);
+            Console.Clear();
+            
+            bool understand = false;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Let me explain how this works.");
+                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("You will be seting off to try and clear the local dungeon.");
+                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("Many have tried and many have failed... perhaps you will be the first to suceed");
+                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("In the dungeon fighting does not work the same way it does out here. These monster prefer to play cards to decide who gets to attack. They are very honarable they will not try any tricks if they lose.");
+                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("The object of the card game these monsters like is a simple version of blackjack. However these guys don't handle large numbers very where so these decks only have 24 cards numbered 1-6.");
+                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("The goal (much like blackjack) is to get a higher card count than your opponent without going over your limit. I can tell you that your limit is 12, as for the monsters, their limits are different depending on their strength");
+                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("I think that's about it. Do you Understand? Y/N");
+                ConsoleKey understood = Console.ReadKey().Key;
+                Console.Clear();
+                switch (understood)
+                {
+                    case ConsoleKey.Y:
+                        Console.WriteLine("Great!! Good Luck!!");
+                        understand = true;
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.N:
+                        Console.WriteLine("Thats okay I will explain it again from the top.");
+                        System.Threading.Thread.Sleep(2000);
+                        understand = false;
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.WriteLine("Looks like you did not understand...lets go over it again.");
+                        System.Threading.Thread.Sleep(2000);
+                        understand = false;
+                        Console.Clear();
+                        break;
+                }
+            } while (!understand);
 
+            Console.WriteLine("You have entered the dungeon!");
+            System.Threading.Thread.Sleep(2000);
+            Enemy enemy = new Enemy("Orc", EnemyLV.Easy);
+            Combat.DoCombat(player, enemy);
         }//end main()
     }//end class
 }//end namespace

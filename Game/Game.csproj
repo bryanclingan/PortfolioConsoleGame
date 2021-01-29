@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Game.TestHarness</StartupObject>
+    <StartupObject>Game.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

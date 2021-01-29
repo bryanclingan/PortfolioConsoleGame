@@ -12,6 +12,7 @@ namespace Methods
     {
         public static void useHPPotion(Player player)
         {
+
             if (player.HPPots>0)
             {
                 player.HPPots -= 1;

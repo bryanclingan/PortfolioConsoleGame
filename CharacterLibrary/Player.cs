@@ -84,5 +84,33 @@ namespace CharacterLibrary
         {
             return string.Format($"{base.ToString()}\nRace: {PlayerRace}\nClass: {PlayerClass}\nLevel: {Level}\nExp: {ExpEarned}/{ExpNeededLvUp}\nStats:\nAttack: {Attack}\nDefense: {Defense}\nInventory:\nArmor: {Armor.Name} - {Armor.Desc}\nWeapon: {Weapon.Name} - {Weapon.Desc}\nMagic Item: {MagicItem.Name} - {MagicItem.Desc}\nHealth Potions: {HPPots}/{MaxHPPots}\n");
         }
+
+
+        public void equipArmor(Player player,Armor oldArmor, Armor newArmor)
+        {
+            
+            Defense -= oldArmor.DefBoost;
+            Defense += newArmor.DefBoost;
+            player.Armor = newArmor;
+        }
+        public void equipWeapon(Player player, Weapon oldWeapon,Weapon newWeapon)
+        {
+            Attack -= oldWeapon.AtkBoost;
+            Attack += newWeapon.AtkBoost;
+            player.Weapon = newWeapon;
+        }
+        public void equipMagicItem (Player player, MagicItem oldMagic, MagicItem newMagic)
+        {
+            Attack -= oldMagic.AtkBoost;
+            Attack += newMagic.AtkBoost;
+            Defense -= oldMagic.DefBoost;
+            Defense += newMagic.DefBoost;
+            MaxHealth -= oldMagic.HealthBoost;
+            MaxHealth += newMagic.HealthBoost;
+            Health -= oldMagic.HealthBoost;
+            Health+= newMagic.HealthBoost;
+            player.MagicItem = newMagic;
+        }
+
     }//end class
 }//emd namespace
