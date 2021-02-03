@@ -12,43 +12,48 @@ namespace Methods
     {
         public static Enemy GetEnemy(EnemyLV level)
         {
-            string[] easyMonsterNames = { "Slime", "Goblin", "Kobold", "Harpy","Imp" };
-            string[] mediumMonsterNames = { "Troll", "Werewolf", "Ghoul","Leshin","Siren" };
-            string[] hardMonsterNames = { "Orc", "Giant", "Griffen","Dijn","Golem" };
+            string[] easyMonsterNames = { "Slime", "Goblin", "Kobold", "Harpy", "Imp" };
+            string[] mediumMonsterNames = { "Troll", "Werewolf", "Ghoul", "Leshin", "Siren" };
+            string[] hardMonsterNames = { "Orc", "Giant", "Griffen", "Dijn", "Golem" };
             Random rand = new Random();
             int randNbr;
+            randNbr = rand.Next(easyMonsterNames.Length);
+            Enemy easyMonster = new Enemy(easyMonsterNames[randNbr], EnemyLV.Easy);
 
-            switch (level)
+            randNbr = rand.Next(mediumMonsterNames.Length);
+            Enemy mediumMonster = new Enemy(mediumMonsterNames[randNbr], EnemyLV.Medium);
+
+            randNbr = rand.Next(hardMonsterNames.Length);
+            Enemy hardMonster = new Enemy(hardMonsterNames[randNbr], EnemyLV.Hard);
+            Enemy monster = new Enemy("oops game broke", EnemyLV.Boss);
+            if (level == EnemyLV.Easy)
             {
-                case EnemyLV.Easy:
-                    randNbr = rand.Next(easyMonsterNames.Length);
-                    return new Enemy(easyMonsterNames[randNbr], EnemyLV.Easy);
-                    break;
-                case EnemyLV.Medium:
-                    randNbr = rand.Next(mediumMonsterNames.Length);
-                    return new Enemy(mediumMonsterNames[randNbr], EnemyLV.Medium);
-                    break;
-                case EnemyLV.Hard:
-                    randNbr = rand.Next(hardMonsterNames.Length);
-                    return new Enemy(hardMonsterNames[randNbr], EnemyLV.Easy);
-                    break;
-               
+                //randNbr = rand.Next(easyMonsterNames.Length);
+                //Enemy monster = new Enemy(easyMonsterNames[randNbr], EnemyLV.Easy);
+                //return new Enemy(easyMonsterNames[randNbr], EnemyLV.Easy);
+                return easyMonster;
             }
-            //if (level == "Easy")
-            //{
-            //    randNbr = rand.Next(easyMonsterNames.Length);
-            //    return new Enemy(easyMonsterNames[randNbr], EnemyLV.Easy);
-            //}
-            //if (level == "Medium")
-            //{
-            //    randNbr = rand.Next(mediumMonsterNames.Length);
-            //    return new Enemy(mediumMonsterNames[randNbr], EnemyLV.Medium);
-            //}
-            //if (level == "Hard")
-            //{
-            //    randNbr = rand.Next(hardMonsterNames.Length);
-            //    return new Enemy(hardMonsterNames[randNbr], EnemyLV.Easy);
-            //}
+            if (level == EnemyLV.Medium)
+            {
+                //randNbr = rand.Next(mediumMonsterNames.Length);
+                //Enemy monster = new Enemy(mediumMonsterNames[randNbr], EnemyLV.Medium);
+                //return new Enemy(mediumMonsterNames[randNbr], EnemyLV.Medium);
+                return mediumMonster;
+            }
+            if (level == EnemyLV.Hard)
+            {
+                //randNbr = rand.Next(hardMonsterNames.Length);
+                //Enemy monster = new Enemy(hardMonsterNames[randNbr], EnemyLV.Hard);
+                //return new Enemy(hardMonsterNames[randNbr], EnemyLV.Hard);
+                return hardMonster;
+            }
+            else
+            {
+              
+                return monster;
+            }
+
+
         }
     }
 }

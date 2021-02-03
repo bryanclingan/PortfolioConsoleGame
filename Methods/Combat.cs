@@ -19,18 +19,11 @@ namespace Methods
             List<int> pCards = new List<int> { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 };
             List<int> eCards = new List<int> { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 };
             Random randcard = new Random();
-            int eLastCard;
-            int plastCard;
+            int eLastCard = 0;
+            int plastCard = 0;
             do
             {
-                if (pCards.Count == 0)
-                {
-                    pCards =new List<int>() { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 };
-                }
-                if (eCards.Count == 0)
-                {
-                    eCards = new List<int>() { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 };
-                }
+                
                 player.Count = 0;
                 enemy.Count = 0;
                 playerStand = false;
@@ -38,13 +31,21 @@ namespace Methods
                 
                 do
                 {
+                    if (pCards.Count == 0)
+                    {
+                        pCards = new List<int>() { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 };
+                    }
+                    if (eCards.Count == 0)
+                    {
+                        eCards = new List<int>() { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 };
+                    }
 
-                    if(!playerStand)
+                    if (!playerStand)
                     {
 
-                        Console.WriteLine($"{enemy.Name}\n{enemy.Count}/{enemy.Limit}\n{enemy.Health}/{enemy.MaxHealth}\n");
+                        Console.WriteLine($"{enemy.Name}\n{enemy.Count}/{enemy.Limit}\n{enemy.Health}/{enemy.MaxHealth}\nLast Card Drawn: {eLastCard}\n");
 
-                        Console.WriteLine($"{player.Name}\n{player.Count}/{player.Limit}\n{player.Health}/{player.MaxHealth}");
+                        Console.WriteLine($"{player.Name}\n{player.Count}/{player.Limit}\n{player.Health}/{player.MaxHealth}\nLast Card Drawn: {plastCard}");
                         do
                         {
 
@@ -58,7 +59,7 @@ namespace Methods
                                     player.Count += pCards[carddrawn];
                                     plastCard = pCards[carddrawn];
                                     pCards.RemoveAt(carddrawn);                                    
-                                    Console.WriteLine($"You drew a {plastCard}");
+                                    
                                     pMenu = true;
                                     if (player.Count == player.Limit)
                                     {
@@ -102,7 +103,7 @@ namespace Methods
                             enemy.Count += eCards[carddrawn];
                             eLastCard = eCards[carddrawn];
                             eCards.RemoveAt(carddrawn);                        
-                            Console.WriteLine($"{enemy.Name} drew a {eLastCard}!");
+                            
                             if (enemy.Count > enemy.Limit)
                             {
                                 if (enemy.Count-eLastCard > player.Count|| enemy.Count - eLastCard == player.Count)
@@ -126,7 +127,7 @@ namespace Methods
                         }//end if 
 
                     }//end if
-                    
+                    Console.Clear();
                 } while (!playerStand || !enemeyStand);
 
                 if (player.Count > enemy.Count)

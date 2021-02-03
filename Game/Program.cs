@@ -133,8 +133,8 @@ namespace Game
 
             Console.WriteLine("You have entered the dungeon!");
             System.Threading.Thread.Sleep(2000);
-            Enemy enemy = new Enemy("Orc", EnemyLV.Easy);
-            Combat.DoCombat(player, enemy);
+            
+            Combat.DoCombat(player, GetMonster.GetEnemy(EnemyLV.Medium));
         }//end main()
     }//end class
 }//end namespace

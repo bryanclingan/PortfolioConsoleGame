@@ -22,7 +22,7 @@ namespace Game
             MagicItem magicItem2 = new MagicItem("Dull Ring", "Looks can be deceiving", 10, 10, 15);
             
 
-            Player player1 = new Player("Clangster", 100, 100, 12, 10, 10, Race.Elf, Class.Ranger, armor1, weapon1, magicItem1, 0, 1, 5, 0, 100, 1);
+            Player player1 = new Player("Clangster", 1000, 1000, 12, 10, 10, Race.Elf, Class.Ranger, armor1, weapon1, magicItem1, 0, 1, 5, 0, 100, 1);
             
             Console.WriteLine(player1);
 
@@ -32,13 +32,12 @@ namespace Game
             //Console.WriteLine(player1);
             //player1.equipMagicItem(player1, player1.MagicItem, magicItem2);
             //Console.WriteLine(player1);
-            Enemy enemy = new Enemy("Orc", EnemyLV.Hard);
-            Console.WriteLine(enemy);
-            Combat.DoCombat(player1, enemy);
+            
+            Combat.DoCombat(player1, GetMonster.GetEnemy(EnemyLV.Hard));
             
 
-            
 
+            
             
             
 
