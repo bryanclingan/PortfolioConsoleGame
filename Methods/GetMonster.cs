@@ -14,7 +14,7 @@ namespace Methods
         {
             string[] easyMonsterNames = { "Slime", "Goblin", "Kobold", "Harpy", "Imp" };
             string[] mediumMonsterNames = { "Troll", "Werewolf", "Ghoul", "Leshin", "Siren" };
-            string[] hardMonsterNames = { "Orc", "Giant", "Griffen", "Dijn", "Golem" };
+            string[] hardMonsterNames = { "Orc", "Giant", "Griffen", "Djinn", "Golem" };
             Random rand = new Random();
             int randNbr;
             randNbr = rand.Next(easyMonsterNames.Length);

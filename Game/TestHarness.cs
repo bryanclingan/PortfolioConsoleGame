@@ -34,8 +34,9 @@ namespace Game
             //Console.WriteLine(player1);
             
             Combat.DoCombat(player1, GetMonster.GetEnemy(EnemyLV.Hard));
-            
 
+            
+            
 
             
             

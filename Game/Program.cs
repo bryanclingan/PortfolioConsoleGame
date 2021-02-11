@@ -96,13 +96,13 @@ namespace Game
                 Console.Clear();
                 Console.WriteLine("Let me explain how this works.");
                 System.Threading.Thread.Sleep(2000);
-                Console.WriteLine("You will be seting off to try and clear the local dungeon.");
+                Console.WriteLine("You will be setting off to try and clear the local dungeon.");
                 System.Threading.Thread.Sleep(2000);
                 Console.WriteLine("Many have tried and many have failed... perhaps you will be the first to suceed");
                 System.Threading.Thread.Sleep(2000);
                 Console.WriteLine("In the dungeon fighting does not work the same way it does out here. These monster prefer to play cards to decide who gets to attack. They are very honarable they will not try any tricks if they lose.");
                 System.Threading.Thread.Sleep(2000);
-                Console.WriteLine("The object of the card game these monsters like is a simple version of blackjack. However these guys don't handle large numbers very where so these decks only have 24 cards numbered 1-6.");
+                Console.WriteLine("The object of the card game these monsters like is a simple version of blackjack. However these guys don't handle large numbers very well so these decks only have 24 cards numbered 1-6.");
                 System.Threading.Thread.Sleep(2000);
                 Console.WriteLine("The goal (much like blackjack) is to get a higher card count than your opponent without going over your limit. I can tell you that your limit is 12, as for the monsters, their limits are different depending on their strength");
                 System.Threading.Thread.Sleep(2000);
