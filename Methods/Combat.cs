@@ -23,12 +23,12 @@ namespace Methods
             int plastCard = 0;
             do
             {
-                
+
                 player.Count = 0;
                 enemy.Count = 0;
                 playerStand = false;
                 enemeyStand = false;
-                
+
                 do
                 {
                     if (pCards.Count == 0)
@@ -58,21 +58,21 @@ namespace Methods
                                     int carddrawn = randcard.Next(pCards.Count);
                                     player.Count += pCards[carddrawn];
                                     plastCard = pCards[carddrawn];
-                                    pCards.RemoveAt(carddrawn);                                    
-                                    
+                                    pCards.RemoveAt(carddrawn);
+
                                     pMenu = true;
                                     if (player.Count == player.Limit)
                                     {
                                         playerStand = true;
                                     }
-                                    if (player.Count>player.Limit)
+                                    if (player.Count > player.Limit)
                                     {
-                                        if (player.Count - plastCard> enemy.Count|| player.Count - plastCard ==enemy.Count)
+                                        if (player.Count - plastCard > enemy.Count || player.Count - plastCard == enemy.Count)
                                         {
                                             player.Count = enemy.Count - 1;
                                             playerStand = true;
                                         }
-                                        if (player.Count - plastCard <enemy.Count)
+                                        if (player.Count - plastCard < enemy.Count)
                                         {
                                             player.Count -= plastCard;
                                             playerStand = true;
@@ -102,16 +102,16 @@ namespace Methods
                             int carddrawn = randcard.Next(eCards.Count);
                             enemy.Count += eCards[carddrawn];
                             eLastCard = eCards[carddrawn];
-                            eCards.RemoveAt(carddrawn);                        
-                            
+                            eCards.RemoveAt(carddrawn);
+
                             if (enemy.Count > enemy.Limit)
                             {
-                                if (enemy.Count-eLastCard > player.Count|| enemy.Count - eLastCard == player.Count)
+                                if (enemy.Count - eLastCard > player.Count || enemy.Count - eLastCard == player.Count)
                                 {
                                     enemy.Count = player.Count - 1;
                                     enemeyStand = true;
                                 }//end if
-                                if (enemy.Count-eLastCard < player.Count)
+                                if (enemy.Count - eLastCard < player.Count)
                                 {
                                     enemy.Count -= eLastCard;
                                     enemeyStand = true;
@@ -134,13 +134,13 @@ namespace Methods
                 {
                     int hits = player.Count - enemy.Count;
                     int hitdamage = player.Attack - enemy.Defense;
-                    
-                    if (hitdamage<=0)
+
+                    if (hitdamage <= 0)
                     {
                         hitdamage = 1;
                     }
-                    
-                    Console.WriteLine($"{player.Name} hit {enemy.Name} {hits} times for {hitdamage} per hit.\nTotal Damage: {hits*hitdamage}");
+
+                    Console.WriteLine($"{player.Name} hit {enemy.Name} {hits} times for {hitdamage} per hit.\nTotal Damage: {hits * hitdamage}");
                     enemy.Health -= (hits * hitdamage);
                 }
                 if (player.Count < enemy.Count)
@@ -155,15 +155,120 @@ namespace Methods
                     player.Health -= (hits * hitdamage);
 
                 }
-                
+
 
             } while (player.Health > 0 && enemy.Health > 0);
-
+            if (player.Health <= 0)
+            {
+                Console.WriteLine("You have died!");
+            }
             if (enemy.Health <= 0)
             {
-                Console.WriteLine($"You have defeated {enemy.Name}\nYou have received {enemy.GoldDroped} Gold and {enemy.ExpDroped} XP");
+                Random rand = new Random();
+                int healthPotChance = rand.Next(101);
+                int lootDropChance = rand.Next(101);
+
+
                 player.Gold += enemy.GoldDroped;
                 player.ExpEarned += enemy.ExpDroped;
+                player.Score += enemy.ExpDroped;
+                
+                if (enemy.HPPotDropRate >= healthPotChance)
+                {
+                    player.HPPots += 1;
+                    Console.WriteLine($"{enemy.Name} dropped an HP Potion!");
+                }
+                if (enemy.LootDropRate >= lootDropChance)
+                {
+                    int magicvsarmorweapon = rand.Next(11);
+                    if (magicvsarmorweapon <= 4)
+                    {
+                        bool correctChoice = false;
+                        MagicItem magicItem = GetItem.GetMagicItem(player);
+                        do
+                        {
+
+
+                            Console.WriteLine($"{enemy.Name} dropped \n{magicItem}\nWould you like to equip it? Y/N");
+                            ConsoleKey choice = Console.ReadKey().Key;
+                            switch (choice)
+                            {
+                                case ConsoleKey.Y:
+                                    player.equipMagicItem( player.MagicItem, magicItem);
+                                    Console.WriteLine($"You have equiped {magicItem.Name}");
+                                    correctChoice = true;
+                                    break;
+                                case ConsoleKey.N:
+                                    correctChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("That was not a choice! Please try again");
+                                    correctChoice = false;
+                                    break;
+                            }
+                        } while (!correctChoice);
+                    }
+                    else
+                    {
+                        bool correctChoice = false;
+                        int weaponvsarmor = rand.Next(11);
+                        if (weaponvsarmor >=5)
+                        {
+                            do
+                            {
+                                Weapon weapon = GetItem.GetWeapon(player);
+
+                                Console.WriteLine($"{enemy.Name} dropped \n{weapon}\nWould you like to equip it? Y/N");
+                                ConsoleKey choice = Console.ReadKey().Key;
+                                switch (choice)
+                                {
+                                    case ConsoleKey.Y:
+                                        player.equipWeapon(player.Weapon,weapon);
+                                        Console.WriteLine($"You have equiped {weapon.Name}");
+                                        correctChoice = true;
+                                        break;
+                                    case ConsoleKey.N:
+                                        correctChoice = true;
+                                        break;
+                                    default:
+                                        Console.WriteLine("That was not a choice! Please try again");
+                                        correctChoice = false;
+                                        break;
+                                }
+                            } while (!correctChoice);
+                        }
+                        else
+                        {
+                            do
+                            {
+
+                                Armor armor = GetItem.GetArmor(player);
+                                Console.WriteLine($"{enemy.Name} dropped \n{armor}\nWould you like to equip it? Y/N");
+                                ConsoleKey choice = Console.ReadKey().Key;
+                                switch (choice)
+                                {
+                                    case ConsoleKey.Y:
+                                        player.equipArmor(player.Armor, armor);
+                                        Console.WriteLine($"You have equiped {armor.Name}");
+                                        correctChoice = true;
+                                        break;
+                                    case ConsoleKey.N:
+                                        correctChoice = true;
+                                        break;
+                                    default:
+                                        Console.WriteLine("That was not a choice! Please try again");
+                                        correctChoice = false;
+                                        break;
+                                }
+                            } while (!correctChoice);
+                        }
+                        
+                    }
+
+                }
+                
+                Console.WriteLine($"You have defeated {enemy.Name}\nYou have received {enemy.GoldDroped} Gold and {enemy.ExpDroped} XP");
+                LevelUp.levelUP(player);
             }
         }//end method
 

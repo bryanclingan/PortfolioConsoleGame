@@ -21,7 +21,8 @@ namespace CharacterLibrary
         public int ExpEarned { get; set; }
         public int ExpNeededLvUp { get; set; }
         public int Level { get; set; }
-        
+        public int Score { get; set; }
+
 
         public int HPPots
         {
@@ -86,20 +87,20 @@ namespace CharacterLibrary
         }
 
 
-        public void equipArmor(Player player,Armor oldArmor, Armor newArmor)
+        public void equipArmor(Armor oldArmor, Armor newArmor)
         {
             
             Defense -= oldArmor.DefBoost;
             Defense += newArmor.DefBoost;
-            player.Armor = newArmor;
+            Armor = newArmor;
         }
-        public void equipWeapon(Player player, Weapon oldWeapon,Weapon newWeapon)
+        public void equipWeapon( Weapon oldWeapon,Weapon newWeapon)
         {
             Attack -= oldWeapon.AtkBoost;
             Attack += newWeapon.AtkBoost;
-            player.Weapon = newWeapon;
+            Weapon = newWeapon;
         }
-        public void equipMagicItem (Player player, MagicItem oldMagic, MagicItem newMagic)
+        public void equipMagicItem ( MagicItem oldMagic, MagicItem newMagic)
         {
             Attack -= oldMagic.AtkBoost;
             Attack += newMagic.AtkBoost;
@@ -109,7 +110,7 @@ namespace CharacterLibrary
             MaxHealth += newMagic.HealthBoost;
             Health -= oldMagic.HealthBoost;
             Health+= newMagic.HealthBoost;
-            player.MagicItem = newMagic;
+            MagicItem = newMagic;
         }
 
     }//end class
